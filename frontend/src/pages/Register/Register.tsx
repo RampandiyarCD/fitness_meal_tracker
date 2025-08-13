@@ -15,6 +15,7 @@ export default function Register() {
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [confirmPasswordError, setConfirmPasswordError] = useState("");
+  const [error, setError] = useState("");
 
   async function registerUser(name: string, email: string, password: string) {
     try {
@@ -25,13 +26,16 @@ export default function Register() {
         },
         body: JSON.stringify({ name, email, password }),
       });
+      if (!response.ok) {
+        setError("Something Went Wrong");
+      }
 
       const data = await response.json();
-      console.log(data);
+      setError("");
       return data;
-    } catch (error) {
-      console.error("registration failed:", error);
-      throw error;
+    } catch {
+      setError("registration failed:");
+      return;
     }
   }
 
@@ -99,9 +103,8 @@ export default function Register() {
             <img src={Logo} alt="FitMeal Logo" className="register-logo" />
             <h1 className="register-title">FitMeal Partner</h1>
           </div>
-
           <h2 className="register-subtitle">Create an Account</h2>
-
+          {error && <p className="error">{error}</p>}
           <form className="register-form" onSubmit={onSubmit}>
             <div className="register-field">
               <input

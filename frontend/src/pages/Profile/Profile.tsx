@@ -36,7 +36,7 @@ export default function Profile() {
       });
 
       if (!res.ok) {
-        throw new Error("Failed to fetch user");
+        return new Error("Failed to fetch user");
       }
 
       const data: User = await res.json();
@@ -49,8 +49,9 @@ export default function Profile() {
       setWeight(user.weight || "");
       setHabit(user.eating_habit || "");
       setTargetWeight(user.target || "");
-    } catch (error) {
-      console.error("Login failed:", error);
+    } catch {
+      setError("Not Authorized");
+      return;
     }
   }
 
@@ -59,9 +60,9 @@ export default function Profile() {
     if (id) {
       getUser(id);
     } else {
-      console.error("No user ID found in localStorage");
+      setError("No user ID found in localStorage");
     }
-  },[]);
+  }, []);
 
   const handleUpdate = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -96,16 +97,12 @@ export default function Profile() {
         setSuccess("");
         return;
       }
-
-      const updatedUser = await res.json();
-      console.log("Updated User:", updatedUser);
-
       setError("");
       setSuccess("User updated successfully");
-    } catch (err) {
-      console.error(err);
+    } catch {
       setError("Error updating profile");
       setSuccess("");
+      return;
     }
   };
 

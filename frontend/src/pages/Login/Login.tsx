@@ -10,6 +10,7 @@ export default function Login() {
   const [emailError, setEmailError] = useState("");
   const [passError, setPassError] = useState("");
   const navigate = useNavigate();
+  const [error, setError] = useState("");
 
   async function loginUser(email: string, password: string) {
     try {
@@ -20,15 +21,20 @@ export default function Login() {
       });
 
       const data = await response.json();
+      if (!response.ok) {
+        setError("Invalid email or password");
+        return;
+      }
       if (data.token) {
         localStorage.setItem("id", data.id);
         localStorage.setItem("token", data.token);
+        setError("");
         navigate("/dashboard");
       }
       return data;
-    } catch (error) {
-      console.error("Login failed:", error);
-      throw error;
+    } catch {
+      setError("Login failed");
+      return;
     }
   }
 
@@ -38,6 +44,7 @@ export default function Login() {
     const emailRegex = /^[^@]+@[^@]+\.[^@]+$/;
     setEmailError("");
     setPassError("");
+    setError("");
 
     if (!email) {
       setEmailError("Please enter your email");
@@ -58,9 +65,9 @@ export default function Login() {
       await loginUser(email, password);
       setEmail("");
       setPassword("");
-    } catch (error) {
-      console.error("Login failed:", error);
-      throw error;
+    } catch {
+      setError("Login Failed");
+      return;
     }
   }
 
@@ -80,6 +87,7 @@ export default function Login() {
             <h1 className="login-title">FitMeal Partner</h1>
           </div>
           <h3 className="login-subtitle">Login</h3>
+          {error && <p className="error">{error}</p>}
           <form className="login-form" onSubmit={onSubmit}>
             <input
               type="text"
