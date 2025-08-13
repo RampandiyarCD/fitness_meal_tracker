@@ -1,0 +1,101 @@
+.diet {
+  padding: 20px;
+  border-radius: 15px;
+  border: 1px solid var(--border-color);
+  width: 100%;
+}
+
+.diet-header {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.diet-text-1 {
+  color: white;
+  display: flex;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 8px 15px;
+  border-radius: 12px;
+  background-color: var(--green);
+}
+
+.diet-text-2 {
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 8px 15px;
+  border-radius: 20px;
+  background-color: var(--green);
+}
+
+.diet-schedule {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.diet-meal {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.diet-label {
+  width: 100%;
+  font-weight: bold;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  padding: 15px 10px;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.diet-container {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.diet-timing {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.diet-item {
+  text-align: center;
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 10px;
+  color: var(--text-color);
+}
+
+.diet-img {
+  width: 120px;
+  height: 100px;
+  object-fit: contain;
+}
+
+.diet-item-desc {
+  margin-top: 5px;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.diet-calorie {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.diet-calorie-item {
+  background-color: var(--background-color);
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  color: var(--text-color);
+}

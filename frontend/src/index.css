@@ -1,0 +1,18 @@
+:root {
+  --background-color: rgb(229, 255, 229);
+  --border-color: rgb(188, 250, 188);
+  --text-color: rgb(0, 66, 0);
+  --green: rgb(1, 58, 1);
+  --button-color: rgb(0, 112, 0);
+  --button-color-hover: rgb(0, 66, 0);
+  --input-color: rgb(175, 197, 169);
+  --active-link-color: white;
+  --active-link-bg: rgb(0, 66, 0);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}

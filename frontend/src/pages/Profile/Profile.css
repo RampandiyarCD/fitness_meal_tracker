@@ -1,0 +1,83 @@
+.profile {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  width: 100%;
+}
+
+.profile-container {
+  width: 100%;
+  max-width: 500px;
+  background-color: var(--background-color);
+  padding: 32px;
+  border-radius: 12px;
+  border: 2px solid var(--border-color);
+}
+
+.profile-title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-bottom: 24px;
+}
+
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.profile-label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--text-color);
+}
+
+.profile-input,
+.profile-select {
+  margin-top: 6px;
+  padding: 12px;
+  font-size: 16px;
+  background-color: var(--input-color);
+  border-radius: 6px;
+  color: var(--text-color);
+  font-weight: 600;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.profile-button {
+  margin-top: 20px;
+  padding: 14px;
+  background-color: var(--button-color);
+  color: white;
+  font-weight: 700;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all ease-in-out 0.3s;
+  width: 100%;
+}
+
+.profile-button:hover {
+  background-color: var(--button-color-hover);
+}
+
+.profile-button:disabled {
+  background-color: rgb(209, 208, 208);
+  cursor: not-allowed;
+}
+
+.success {
+  color: var(--text-color);
+}
+
+.error {
+  color: rgb(190, 23, 23);
+}

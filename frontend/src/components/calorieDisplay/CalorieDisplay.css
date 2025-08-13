@@ -1,0 +1,25 @@
+.calorie-display {
+  background-color: white;
+  padding: 20px;
+  border-radius: 15px;
+  border: 1px solid var(--border-color);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.calorie-title {
+  margin: 15px;
+  color: var(--text-color);
+  text-align: left;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+}
+
+.calorie-text {
+  bottom: 5px;
+  font-weight: bold;
+  color: var(--text-color);
+  font-size: 18px;
+}
