@@ -1,5 +1,8 @@
 .dashboard {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 
 .dashboard-header {
@@ -34,8 +37,9 @@
 
 .dashboard-section {
   display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
   gap: 25px;
-  margin-bottom: 40px;
 }
 
 .dashboard-diet {
@@ -64,4 +68,6 @@
 .benefits-map {
   display: flex;
   gap: 25px;
+  align-items: center;
+  justify-content: center;
 }

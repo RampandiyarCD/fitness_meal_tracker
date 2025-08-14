@@ -4,6 +4,8 @@ import Register from "./pages/Register/Register";
 import Profile from "./pages/Profile/Profile";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Layout from "./pages/Layout/Layout";
+import About from "./pages/About/About";
+import Blog from "./pages/Blog/Blog";
 
 export default function App() {
   return (
@@ -14,6 +16,8 @@ export default function App() {
         <Route element={<Layout />}>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/blog" element={<Blog />} />
         </Route>
       </Routes>
     </BrowserRouter>

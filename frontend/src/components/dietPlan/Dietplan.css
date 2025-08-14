@@ -51,12 +51,14 @@
   padding: 15px 10px;
   text-align: center;
   border-radius: 8px;
+  cursor: pointer;
 }
 
 .diet-container {
   display: flex;
   gap: 10px;
   width: 100%;
+  align-items: center;
 }
 
 .diet-timing {
@@ -98,4 +100,34 @@
   border-radius: 8px;
   font-weight: 600;
   color: var(--text-color);
+}
+
+.diet-slide {
+  background-color: var(--background-color);
+  border-radius: 50%;
+  color: var(--green);
+  cursor: pointer;
+}
+
+.diet-plan {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-top: 18px;
+  gap: 20px;
+}
+
+.diet-plan-item {
+  font-weight: 600;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  border-radius: 20px;
+  padding: 10px;
+  min-width: 600px;
+}
+
+.diet-plan-value {
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--green);
 }

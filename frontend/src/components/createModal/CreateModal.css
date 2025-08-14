@@ -1,0 +1,105 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: var(--background-color);
+  padding: 32px;
+  border-radius: 12px;
+  border: 2px solid var(--border-color);
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.modal-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-bottom: 20px;
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.modal-input {
+  padding: 12px;
+  font-size: 16px;
+  background-color: var(--input-color);
+  border-radius: 6px;
+  color: var(--text-color);
+  font-weight: 600;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.modal-submit {
+  margin-top: 10px;
+  padding: 14px;
+  background-color: var(--button-color);
+  color: white;
+  font-weight: 700;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all ease-in-out 0.3s;
+  width: 100%;
+}
+
+.modal-submit:hover {
+  background-color: var(--button-color-hover);
+}
+
+.modal-submit:disabled {
+  background-color: rgb(209, 208, 208);
+  cursor: not-allowed;
+}
+
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 22px;
+  background: none;
+  border: none;
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+.modal-error {
+  color: rgb(190, 23, 23);
+  font-size: 14px;
+  margin-top: -6px;
+  text-align: center;
+}
+
+.modal-select {
+  margin-top: 6px;
+  padding: 12px;
+  font-size: 16px;
+  background-color: var(--input-color);
+  border-radius: 6px;
+  color: var(--text-color);
+  font-weight: 600;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  width: 100%;
+}

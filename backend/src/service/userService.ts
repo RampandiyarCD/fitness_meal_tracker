@@ -1,7 +1,7 @@
 import User from "../entity/userModel";
 import userRepository from "../repository/userRepository";
 
-export const createUserService = async (userData: Partial<User>) => {
+export const createUserService = async (userData: User) => {
   if (!userData) {
     return { error: "No data passed" };
   }
@@ -41,10 +41,7 @@ export const loginUserService = async (email: string, password: string) => {
   return { message: "Login successful", id: loginData.id };
 };
 
-export const updateUserService = async (
-  userData: Partial<User>,
-  id: string
-) => {
+export const updateUserService = async (userData: User, id: string) => {
   if (!id) {
     return { error: "User ID is required" };
   }

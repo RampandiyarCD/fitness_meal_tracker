@@ -17,7 +17,6 @@ export const createUserController = async (req: Request, res: Response) => {
 
     return res.status(201).json(result);
   } catch (error) {
-    console.error("Create User Error:", error);
     return res.status(500).json({ error: "Internal Server Error" });
   }
 };
@@ -35,7 +34,6 @@ export const loginUserController = async (req: Request, res: Response) => {
     });
     return res.status(200).json({ id: result.id, result, token });
   } catch (error) {
-    console.error("Login User Error:", error);
     return res.status(500).json({ error: "Internal Server Error" });
   }
 };
@@ -49,7 +47,6 @@ export const updateUserController = async (req: Request, res: Response) => {
     }
     return res.status(200).json(result);
   } catch (error) {
-    console.error("Update User Error:", error);
     return res.status(500).json({ error: "Internal Server Error" });
   }
 };
@@ -63,7 +60,6 @@ export const getUserbyIdController = async (req: Request, res: Response) => {
     }
     return res.status(200).json(result);
   } catch (error) {
-    console.error("Get User Error:", error);
     return res.status(500).json({ error: "Internal Server Error" });
   }
 };

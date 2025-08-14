@@ -7,26 +7,26 @@ export default class Meals {
   id: string;
 
   @Column()
-  name: string;
+  name?: string;
 
   @ManyToOne(() => User, (user) => user.id)
-  user_id: User;
+  user_id?: User;
 
-  @Column()
-  image: string;
+  @Column({ nullable: true })
+  image?: string;
 
-  @Column()
-  calories: number;
+  @Column({ nullable: true })
+  calories?: number;
 
   @Column("enum", { enum: ["breakfast", "lunch", "dinner", "snack"] })
-  meal_type: "breakfast" | "lunch" | "dinner" | "snack";
+  meal_type?: "breakfast" | "lunch" | "dinner" | "snack";
 
-  @Column()
-  quantity: number;
+  @Column({ nullable: true })
+  quantity?: number;
 
   @Column("date")
-  date: string;
+  date?: string;
 
-  @Column("time")
-  time: string;
+  @Column("enum", { enum: ["8:00 AM", "1:00 PM", "8:00 PM", "11:00 AM"] })
+  time?: string;
 }

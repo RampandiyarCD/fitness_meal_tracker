@@ -10,6 +10,7 @@ interface User {
     weight: string;
     eating_habit: string;
     target: string;
+    target_calorie: string;
   };
 }
 
@@ -21,6 +22,7 @@ export default function Profile() {
   const [weight, setWeight] = useState("");
   const [eating_habit, setHabit] = useState("");
   const [target, setTargetWeight] = useState("");
+  const [target_calorie, setTargetCalorie] = useState("");
   const token = localStorage.getItem("token");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
@@ -49,6 +51,7 @@ export default function Profile() {
       setWeight(user.weight || "");
       setHabit(user.eating_habit || "");
       setTargetWeight(user.target || "");
+      setTargetCalorie(user.target_calorie || "");
     } catch {
       setError("Not Authorized");
       return;
@@ -89,6 +92,7 @@ export default function Profile() {
           weight,
           eating_habit,
           target,
+          target_calorie,
         }),
       });
 
@@ -188,6 +192,16 @@ export default function Profile() {
             />
           </label>
 
+          <label className="profile-label">
+            Target Calorie
+            <input
+              className="profile-input"
+              type="number"
+              value={target_calorie}
+              onChange={(e) => setTargetCalorie(e.target.value)}
+            />
+          </label>
+
           <button
             type="submit"
             className="profile-button"
@@ -198,7 +212,8 @@ export default function Profile() {
               !height ||
               !weight ||
               !target ||
-              !eating_habit
+              !eating_habit ||
+              !target_calorie
             }
           >
             Edit Profile

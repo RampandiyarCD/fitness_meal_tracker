@@ -13,7 +13,7 @@ export const authentication = (
   console.log(token);
   try {
     const decoded = jwt.verify(token, process.env.SECRET_KEY);
-    (req as any).currentUser = decoded;
+    req.params.currentUser = decoded;
     console.log(decoded);
     next();
   } catch {

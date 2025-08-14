@@ -6,35 +6,35 @@ export default class User {
   id: string;
 
   @Column()
-  name: string;
+  name?: string;
 
   @Column({ unique: true })
-  email: string;
+  email?: string;
 
   @Column()
-  password: string;
+  password?: string;
 
   @Column("enum", {
     enum: ["Weight loss", "Weight gain", "Maintenance"],
     nullable: true,
   })
-  scope: "Weight loss" | "Weight gain" | "Maintenance";
+  scope?: "Weight loss" | "Weight gain" | "Maintenance";
 
   @Column("float", { nullable: true })
-  height: number;
+  height?: number;
 
   @Column("float", { nullable: true })
-  weight: number;
+  weight?: number;
+
+  @Column({ nullable: true })
+  target_calorie?: number;
 
   @Column("enum", {
     enum: ["Veg", "Non-veg"],
     nullable: true,
   })
-  eating_habit: "Veg" | "Non-veg";
+  eating_habit?: "Veg" | "Non-veg";
 
   @Column("float", { nullable: true })
-  target: number;
-
-  @Column({ nullable: true })
-  image: string;
+  target?: number;
 }

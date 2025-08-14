@@ -8,7 +8,7 @@ export default function Sidebar() {
     localStorage.clear();
   }
   return (
-    <aside className="sidebar">
+    <div className="sidebar">
       <div className="sidebar-top">
         <div className="sidebar-header">
           <img src={logo} alt="FitMeal Partner Logo" className="sidebar-logo" />
@@ -22,9 +22,9 @@ export default function Sidebar() {
               </NavLink>
             </li>
             <li className="sidebar-item">
-              <a href="#about" className="sidebar-link">
+              <Link to="/about" className="sidebar-link">
                 About Us
-              </a>
+              </Link>
             </li>
             <li className="sidebar-item">
               <a href="#category" className="sidebar-link">
@@ -32,9 +32,9 @@ export default function Sidebar() {
               </a>
             </li>
             <li className="sidebar-item">
-              <a href="#blogs" className="sidebar-link">
+              <Link to="/blog" className="sidebar-link">
                 Blogs
-              </a>
+              </Link>
             </li>
             <li className="sidebar-item">
               <NavLink to="/profile" className="sidebar-link">
@@ -50,6 +50,6 @@ export default function Sidebar() {
           Signout
         </Link>
       </div>
-    </aside>
+    </div>
   );
 }

@@ -6,12 +6,6 @@
 }
 
 .extra-meal-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.extra-meal-title {
   font-size: 14px;
   font-weight: 600;
   margin-bottom: 20px;
@@ -37,8 +31,9 @@
 }
 
 .extra-meal-list {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: repeat(2, auto);
+  grid-auto-flow: column;
   gap: 15px;
 }
 
@@ -55,7 +50,7 @@
   width: 100%;
 }
 
-.extra-meal-ctitle {
+.extra-meal-title {
   margin: 5px;
   font-size: 15px;
   color: var(--text-color);
