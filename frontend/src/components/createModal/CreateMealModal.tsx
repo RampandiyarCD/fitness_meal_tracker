@@ -12,6 +12,7 @@ interface MealData {
   calories: number;
   meal_type: string;
   time: string;
+  image: string;
   date: string;
 }
 
@@ -23,6 +24,7 @@ export default function CreateMealModal({
   const [calories, setCalories] = useState<string>("");
   const [meal_type, setMealType] = useState<string>("");
   const [time, setTime] = useState<string>("");
+  const [image, setImage] = useState<string>("");
   const [error, setError] = useState<string>("");
   const token = localStorage.getItem("token");
   const userId = localStorage.getItem("id");
@@ -39,6 +41,7 @@ export default function CreateMealModal({
       userId: userId,
       calories: Number(calories),
       meal_type,
+      image,
       time: "11:00 AM",
       date: new Date().toLocaleDateString(),
     };
@@ -58,6 +61,7 @@ export default function CreateMealModal({
         setCalories("");
         setMealType("");
         setTime("");
+        setImage("");
         setError("");
         onMealCreated();
         onClose();
@@ -85,7 +89,7 @@ export default function CreateMealModal({
         <form onSubmit={handleSubmit} className="modal-form">
           <input
             type="text"
-            placeholder="Snack Name"
+            placeholder="Meal Name"
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
@@ -130,10 +134,18 @@ export default function CreateMealModal({
             required
             className="modal-input"
           />
+          <input
+            type="string"
+            placeholder="Image Address"
+            value={image}
+            onChange={(e) => setImage(e.target.value)}
+            required
+            className="modal-input"
+          />
           <button
             type="submit"
             className="modal-submit"
-            disabled={!name || !calories}
+            disabled={!name || !calories || !image || !time || !meal_type}
           >
             Add Snack
           </button>

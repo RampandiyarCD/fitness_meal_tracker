@@ -1,5 +1,6 @@
 import User from "../entity/userModel";
 import userRepository from "../repository/userRepository";
+import bcrypt from "bcrypt";
 
 export const createUserService = async (userData: User) => {
   if (!userData) {
@@ -11,6 +12,11 @@ export const createUserService = async (userData: User) => {
   });
   if (existingUser) {
     return { error: "Email already exists" };
+  }
+
+  const saltRounds = 10;
+  if (userData.password) {
+    userData.password = await bcrypt.hash(userData.password, saltRounds);
   }
 
   const newUser = userRepository.create(userData);
@@ -34,7 +40,8 @@ export const loginUserService = async (email: string, password: string) => {
     return { error: "Provide email" };
   }
 
-  if (password !== loginData.password) {
+  const isPasswordValid = await bcrypt.compare(password, loginData.password);
+  if (!isPasswordValid) {
     return { error: "Email or password is wrong" };
   }
 
@@ -68,5 +75,5 @@ export const getUserByIdService = async (id: string) => {
     return { error: "User not found" };
   }
 
-  return { message: "", user: user };
+  return { user: user };
 };

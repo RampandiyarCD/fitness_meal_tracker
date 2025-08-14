@@ -27,7 +27,6 @@ export const getMealsByUserService = async (userId: string) => {
   const meals = await mealRepository.find({
     where: { user_id: { id: userId } },
   });
-  console.log(meals);
   if (!meals) {
     return { error: "No meals found for this user" };
   }

@@ -51,14 +51,14 @@ export default function Dashboard() {
       });
 
       if (!res.ok) {
-        setError({ error: "Failed to get meals" });
+        setError({ error: "Failed to Get meals" });
         return;
       }
 
       const data = await res.json();
       setMeals(data.meals || []);
     } catch {
-      setError({ error: "Error loading meals" });
+      setError({ error: "Error Loading Meals" });
       return;
     }
   };
@@ -73,21 +73,21 @@ export default function Dashboard() {
       });
 
       if (!res.ok) {
-        setError({ error: "Failed to fetch user" });
+        setError({ error: "Failed to Get User" });
         return;
       }
 
       const data = await res.json();
       setUser(data.user || null);
     } catch {
-      setError({ error: "Error loading user data" });
+      setError({ error: "Error Loading User" });
     }
   };
 
   useEffect(() => {
     const userId = localStorage.getItem("id");
     if (!userId) {
-      setError({ error: "No user ID found in localStorage" });
+      setError({ error: "No User Found" });
       return;
     }
     getMeals(userId);
@@ -172,6 +172,7 @@ export default function Dashboard() {
           />
           {meals.slice(currentIndex, currentIndex + 3).map((meal) => (
             <Healthybenifits
+              key={meal.id}
               image={meal.image || saladImg}
               title={meal.name || "Fresh Salad with Vibrant Vegetables"}
             />
