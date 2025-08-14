@@ -11,13 +11,13 @@ export const createMealController = async (req: Request, res: Response) => {
 
     if (result.error) {
       logger.error(result.error);
-      return res.sendStatus(400);
+      return res.status(400).json({ error: "Something went wrong" });
     }
     logger.info(result);
-    return res.sendStatus(201);
+    return res.status(201).json(result);
   } catch (error) {
     logger.error(error);
-    return res.sendStatus(500);
+    return res.status(500).json({ error: "Internal Server Error" });
   }
 };
 
@@ -27,12 +27,12 @@ export const getMealsByUserController = async (req: Request, res: Response) => {
 
     if (result.error) {
       logger.error(result.error);
-      return res.sendStatus(400);
+      return res.status(400).json({ error: "Something went wrong" });
     }
     logger.info(result);
     return res.status(201).json(result);
   } catch (error) {
     logger.error(error);
-    return res.sendStatus(500);
+    return res.status(500).json({ error: "Internal Server Error" });
   }
 };

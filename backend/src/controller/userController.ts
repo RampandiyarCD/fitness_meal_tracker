@@ -14,14 +14,14 @@ export const createUserController = async (req: Request, res: Response) => {
 
     if (result.error) {
       logger.error(result.error);
-      return res.sendStatus(400);
+      return res.status(400).json({ error: "Something went wrong" });
     }
 
     logger.info(result);
-    return res.sendStatus(201);
+    return res.status(201).json(result);
   } catch (error) {
     logger.error(error);
-    return res.sendStatus(500);
+    return res.status(500).json({ error: "Internal Server Error" });
   }
 };
 
@@ -31,7 +31,7 @@ export const loginUserController = async (req: Request, res: Response) => {
 
     if (result.error) {
       logger.error(result.error);
-      return res.sendStatus(400);
+      return res.status(400).json({ error: "Something went wrong" });
     }
 
     const payload = { id: result.id };
@@ -43,7 +43,7 @@ export const loginUserController = async (req: Request, res: Response) => {
     return res.status(200).json({ id: result.id, result, token });
   } catch (error) {
     logger.error(error);
-    return res.sendStatus(500);
+    return res.status(500).json({ error: "Internal Server Error" });
   }
 };
 
@@ -53,14 +53,14 @@ export const updateUserController = async (req: Request, res: Response) => {
 
     if (result.error) {
       logger.error(result.error);
-      return res.sendStatus(400);
+      return res.status(400).json({ error: "Something went wrong" });
     }
 
     logger.info(result);
-    return res.sendStatus(200);
+    return res.status(201).json(result);
   } catch (error) {
     logger.error(error);
-    return res.sendStatus(500);
+    return res.status(500).json({ error: "Internal Server Error" });
   }
 };
 
@@ -70,13 +70,13 @@ export const getUserbyIdController = async (req: Request, res: Response) => {
 
     if (result.error) {
       logger.error(result.error);
-      return res.sendStatus(400);
+      return res.status(400).json({ error: "Something went wrong" });
     }
 
     logger.info(result);
     return res.status(200).json(result);
   } catch (error) {
     logger.error(error);
-    return res.sendStatus(500);
+    return res.status(500).json({ error: "Internal Server Error" });
   }
 };
